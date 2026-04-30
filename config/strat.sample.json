@@ -1,0 +1,76 @@
+{
+  "model": {
+    "slug": "stratocaster",
+    "name": "Stratocaster",
+    "basePriceCents": 149900
+  },
+  "groups": [
+    {
+      "slug": "body_color",
+      "name": "Body Color",
+      "required": true,
+      "defaultOption": "olympic_white",
+      "options": [
+        {
+          "slug": "olympic_white",
+          "name": "Olympic White",
+          "priceDeltaCents": 0,
+          "assets": [{ "type": "layer_2d", "key": "body/olympic-white.webp", "order": 10 }]
+        },
+        {
+          "slug": "three_tone_sunburst",
+          "name": "3-Tone Sunburst",
+          "priceDeltaCents": 5000,
+          "assets": [{ "type": "layer_2d", "key": "body/3-tone-sunburst.webp", "order": 10 }]
+        }
+      ]
+    },
+    {
+      "slug": "pickguard",
+      "name": "Pickguard",
+      "required": true,
+      "defaultOption": "mint_green_sss",
+      "options": [
+        {
+          "slug": "mint_green_sss",
+          "name": "Mint Green (SSS)",
+          "priceDeltaCents": 0,
+          "assets": [{ "type": "layer_2d", "key": "pickguard/mint-green-sss.webp", "order": 20 }]
+        },
+        {
+          "slug": "parchment_hss",
+          "name": "Parchment (HSS)",
+          "priceDeltaCents": 0,
+          "assets": [{ "type": "layer_2d", "key": "pickguard/parchment-hss.webp", "order": 20 }]
+        }
+      ]
+    },
+    {
+      "slug": "pickup_config",
+      "name": "Pickup Configuration",
+      "required": true,
+      "defaultOption": "sss",
+      "options": [
+        { "slug": "sss", "name": "SSS", "priceDeltaCents": 0, "assets": [] },
+        { "slug": "hss", "name": "HSS", "priceDeltaCents": 12000, "assets": [] }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "hss_requires_hss_guard",
+      "priority": 1,
+      "if": {
+        "all": [
+          { "group": "pickup_config", "equals": "hss" },
+          { "group": "pickguard", "notEquals": "parchment_hss" }
+        ]
+      },
+      "then": {
+        "invalid": true,
+        "message": "HSS pickup configuration requires an HSS-compatible pickguard.",
+        "suggest": { "pickguard": "parchment_hss" }
+      }
+    }
+  ]
+}
