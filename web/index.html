@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Mod Shop Configurator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Guitar Mod Shop Configurator</h1>
+        <p>Choose options and watch the guitar update live.</p>
+      </header>
+
+      <section class="layout">
+        <aside id="controls" class="panel"></aside>
+
+        <section class="panel preview-panel">
+          <h2>Live Preview</h2>
+          <svg id="guitar" viewBox="0 0 800 360" role="img" aria-label="Guitar preview">
+            <rect x="0" y="0" width="800" height="360" fill="#f7f7f7"/>
+            <rect id="neck" x="120" y="160" width="390" height="38" rx="8" fill="#d0b07a" />
+            <rect id="fretboard" x="120" y="164" width="390" height="30" rx="6" fill="#8c6a3e" />
+            <ellipse id="body" cx="620" cy="180" rx="130" ry="110" fill="#f3f3f3" stroke="#222" stroke-width="4"/>
+            <ellipse id="pickguard" cx="622" cy="185" rx="88" ry="72" fill="#dce0d6" stroke="#333" stroke-width="2"/>
+            <g id="pickup-sss" fill="#f4f4f4" stroke="#222" stroke-width="2">
+              <rect x="578" y="145" width="16" height="58" rx="5"/>
+              <rect x="618" y="145" width="16" height="58" rx="5"/>
+              <rect x="658" y="145" width="16" height="58" rx="5"/>
+            </g>
+            <g id="pickup-hss" class="hidden" fill="#f4f4f4" stroke="#222" stroke-width="2">
+              <rect x="570" y="148" width="34" height="52" rx="5"/>
+              <rect x="618" y="145" width="16" height="58" rx="5"/>
+              <rect x="658" y="145" width="16" height="58" rx="5"/>
+            </g>
+            <rect id="bridge" x="602" y="220" width="54" height="18" rx="3" fill="#c9c9c9" stroke="#222"/>
+            <circle id="knob1" cx="670" cy="228" r="10" fill="#f9f9f9" stroke="#222"/>
+            <circle id="knob2" cx="692" cy="210" r="10" fill="#f9f9f9" stroke="#222"/>
+          </svg>
+
+          <div id="validation" class="validation"></div>
+
+          <div class="price-row">
+            <span>Total</span>
+            <strong id="total-price">$0.00</strong>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

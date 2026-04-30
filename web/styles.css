@@ -1,0 +1,18 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #101214;
+}
+body { margin: 0; background: #f3f5f7; }
+.app { max-width: 1100px; margin: 0 auto; padding: 24px; }
+.layout { display: grid; grid-template-columns: 340px 1fr; gap: 16px; }
+.panel { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.preview-panel svg { width: 100%; border-radius: 8px; border: 1px solid #e0e0e0; }
+.group { margin-bottom: 14px; }
+label { font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px; }
+select, button { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #c9ced6; }
+button { cursor: pointer; background: #111827; color: #fff; border: none; margin-top: 10px; }
+.hidden { display: none; }
+.price-row { display: flex; justify-content: space-between; margin-top: 12px; font-size: 20px; }
+.validation { min-height: 28px; font-size: 14px; margin-top: 8px; color: #b42318; }
+.validation.ok { color: #067647; }
+@media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
